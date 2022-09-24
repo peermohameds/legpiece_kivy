@@ -1,0 +1,85 @@
+#: import ew kivy.uix.effectwidget
+
+<Legpiecedesign>:
+    MDBoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Color:
+                rgba: rgba("#141e45")
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        MDBoxLayout:
+            size_hint: 1, 0.1
+            padding:[dp(4), 0, dp(4), 0]
+            TitleBarButton:
+                text: "Hello Peer"
+                icon: "origin"
+                on_press: print("Hello")
+            MDIcon:
+                pos_hint: {"center_x": 0.7, "center_y":0.5} 
+                icon: "bell-badge"
+        MDBoxLayout:
+            size_hint: 1, 0.25
+            padding: [8, 5, 8, 5]
+            spacing: dp(5)
+            DisplayCard:
+                value: "4,189.04"
+                text: "Sales"
+            DisplayCard:
+                value: "12,684.04"
+                text: "Purchase"
+                # orientation: "vertical"
+                # spacing: dp(5)
+                # MDLabel:
+                
+                #     text: "Rs. 4,687.20"
+                #     font_style: "H6"
+
+                    
+                # MDLabel:
+                #     text: "Sales"
+                #     font_style:  "Button"
+
+                    
+        MDBoxLayout:
+            size_hint: 1, 0.65    
+
+
+<TitleBarButton>:
+    orientation: "horizontal"
+    spacing:dp(4)
+    BoxLayout:
+        size_hint: None, None
+        size: [dp(120),dp(40)]
+        pos_hint: {"center_x": 0.5, "center_y":0.5} 
+        padding: [10, 0, 0, 0]
+        MDIcon:
+            icon: root.icon
+            pos_hint: {"x": 0.1, "center_y":0.5} 
+        MDLabel:
+            text: root.text
+            pos_hint: {"x": 0.5, "center_y":0.5}
+            bold: True
+
+<DisplayCard>:
+    md_bg_color: rgba("#262d63")
+    orientation: "vertical"
+    spacing: dp(5)    
+    padding: [10, 20, 0, 10]
+    radius: [10]
+    MDLabel:
+        text: "[sup]₹[/sup]" + root.value
+        markup: True
+        font_style:  "H6"
+        #size_hint: [None, None]
+        width: self.size[0]
+        halign: "center"
+        #pos_hint: {"center_x": 0.5, "y": 0.5 }
+    MDLabel:
+        text: "[color=#ffbd97]" + root.text + "[/color]"
+        markup: True
+        font_size: 13
+        halign: "center"
+        color: rgba("#ffbd97")
+        pos_hint: {"center_x": 0.5, "y": 0.2 }   
