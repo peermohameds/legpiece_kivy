@@ -1,4 +1,3 @@
-import imp
 from kivymd.app import MDApp
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
